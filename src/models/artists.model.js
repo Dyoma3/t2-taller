@@ -7,7 +7,9 @@ module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
   const { Schema } = mongooseClient;
   const schema = new Schema({
-    text: { type: String, required: true }
+    id: { type: String, required: true },
+    name: { type: String, required: true },
+    age: { type: Number, required: true },
   }, {
     timestamps: true
   });
