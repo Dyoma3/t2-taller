@@ -32,5 +32,22 @@ module.exports = function (app) {
     }  
   });
 
+  app.use('/artists/:artistId/tracks', service);
+  function mapArtistIdToData(context) {
+    if(context.data && context.params.route.artistId) {
+      context.data.artistId = context.params.route.artistId;
+    }
+  }
+  app.service('artists/:artistId/tracks').hooks({
+    before: {
+      find(context) {
+        context.params.query.artistId = context.params.route.artistId;
+      },
+      create: mapArtistIdToData,
+      update: mapArtistIdToData,
+      patch: mapArtistIdToData,
+    }  
+  });
+
   service.hooks(hooks);
 };
