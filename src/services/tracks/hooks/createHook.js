@@ -1,9 +1,10 @@
 module.exports = context => {
   if (context.result === 'Invalid Input') {
     context.statusCode = 400;
-  } else if (context.result === 'No Album') {
+  } else if (context.result.message === 'Already Exists') {
     context.statusCode = 409;
-  } else if (context.result === 'Already Exists') {
+    context.result = context.result.data;
+  } else if (context.result === 'No Album') {
     context.statusCode = 422;
   }
   return context;

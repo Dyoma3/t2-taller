@@ -13,9 +13,17 @@ module.exports = async (data) => {
 
   const artistsModel = mongoose.models.artists;
   // verify it doesnt exist already
-  const alreadyExists = await artistsModel.exists({ id });
+  const alreadyExists = await artistsModel.findOne({ id } , {
+    _id: 0,
+    id: 1,
+    name: 1,
+    age: 1,
+    albums: 1,
+    tracks: 1,
+    self: 1,
+  });
   if (alreadyExists) {
-    return 'Already Exists';
+    return { message: 'Already Exists', data: alreadyExists };
   }
 
   await artistsModel.create({
