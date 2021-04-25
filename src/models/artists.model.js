@@ -10,6 +10,9 @@ module.exports = function (app) {
     id: { type: String, required: true },
     name: { type: String, required: true },
     age: { type: Number, required: true },
+    albums: { type: String, required: true },
+    tracks: { type: String, required: true },
+    self: { type: String, required: true },
   }, {
     timestamps: true
   });

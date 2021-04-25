@@ -9,9 +9,13 @@ module.exports = function (app) {
   const schema = new Schema({
     id: { type: String, required: true },
     name: { type: String, required: true },
-    genre: { type: String, required: true },
+    duration: { type: Number, required: true },
+    timesPlayed: { type: Number, required: true },
     albumId: { type: String, required: true },
     artistId: { type: String, required: true },
+    artist: { type: String, required: true },
+    album: { type: String, required: true },
+    self: { type: String, required: true },
   }, {
     timestamps: true
   });

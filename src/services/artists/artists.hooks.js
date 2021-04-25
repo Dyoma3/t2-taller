@@ -1,4 +1,4 @@
-
+const getHook = require('./hooks/getHook');
 
 module.exports = {
   before: {
@@ -14,7 +14,7 @@ module.exports = {
   after: {
     all: [],
     find: [],
-    get: [],
+    get: [getHook],
     create: [],
     update: [],
     patch: [],
