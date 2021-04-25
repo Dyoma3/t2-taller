@@ -1,6 +1,7 @@
 const { Service } = require('feathers-mongoose');
 const createMethod = require('./methods/createMethod');
 const findMethod = require('./methods/findMethod');
+const getMethod = require('./methods/getMethod');
 
 exports.Tracks = class Tracks extends Service {
 
@@ -12,5 +13,8 @@ exports.Tracks = class Tracks extends Service {
     return await findMethod(params);
   }
 
-
+  async get(id) {
+    return await getMethod(id);
+  }
+  
 };
