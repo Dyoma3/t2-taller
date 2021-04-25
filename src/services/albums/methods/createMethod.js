@@ -26,7 +26,7 @@ module.exports = async data => {
     id,
     name,
     genre,
-    artistId,
+    artist_id: artistId,
     artist,
     tracks,
     self,

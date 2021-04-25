@@ -10,7 +10,7 @@ module.exports = function (app) {
     id: { type: String, required: true, unique: true },
     name: { type: String, required: true },
     genre: { type: String, required: true},
-    artistId: { type: String, required: true },
+    artist_id: { type: String, required: true },
     artist: { type: String, required: true },
     tracks: { type: String, required: true },
     self: { type: String, required: true },

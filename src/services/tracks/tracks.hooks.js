@@ -1,4 +1,4 @@
-
+const createHook = require('./hooks/createHook');
 
 module.exports = {
   before: {
@@ -15,7 +15,7 @@ module.exports = {
     all: [],
     find: [],
     get: [],
-    create: [],
+    create: [createHook],
     update: [],
     patch: [],
     remove: []

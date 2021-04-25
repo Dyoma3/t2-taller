@@ -15,5 +15,22 @@ module.exports = function (app) {
   // Get our initialized service so that we can register hooks
   const service = app.service('tracks');
 
+  app.use('/albums/:albumId/tracks', service);
+  function mapAlbumIdToData(context) {
+    if(context.data && context.params.route.albumId) {
+      context.data.albumId = context.params.route.albumId;
+    }
+  }
+  app.service('albums/:albumId/tracks').hooks({
+    before: {
+      find(context) {
+        context.params.query.albumId = context.params.route.albumId;
+      },
+      create: mapAlbumIdToData,
+      update: mapAlbumIdToData,
+      patch: mapAlbumIdToData,
+    }  
+  });
+
   service.hooks(hooks);
 };
