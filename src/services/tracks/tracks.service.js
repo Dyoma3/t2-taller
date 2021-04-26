@@ -49,5 +49,16 @@ module.exports = function (app) {
     }  
   });
 
+  app.use('/tracks/:trackId/play', service);
+  app.service('tracks/:trackId/play').hooks({
+    before: {
+      update: context => {
+        if(context.data && context.params.route.trackId) {
+          context.data.trackId = context.params.route.trackId;
+        }
+      },
+    }
+  });
+
   service.hooks(hooks);
 };
