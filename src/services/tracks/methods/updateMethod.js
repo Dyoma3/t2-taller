@@ -7,22 +7,6 @@ module.exports = async data => {
   if (!trackExists) {
     return 'No Track';
   }
-  const session = await mongoose.startSession();
-  try {
-    await session.withTransaction(async () => {
-      const { times_played } = await tracksModel.findOne(
-        { id },
-        { times_played: 1 },
-        { session }
-      );
-      await tracksModel.updateOne(
-        { id },
-        { times_played: times_played + 1 },
-        { session },
-      );
-    });
-  } finally {
-    session.endSession();
-  }
+  await tracksModel.updateOne({ id }, { $inc: { times_played: 1 } });
   return {};
 };

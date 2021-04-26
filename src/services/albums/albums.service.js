@@ -32,5 +32,16 @@ module.exports = function (app) {
     }  
   });
 
+  app.use('/albums/:albumId/tracks/play', service);
+  app.service('albums/:albumId/tracks/play').hooks({
+    before: {
+      update(context) {
+        if(context.data && context.params.route.albumId) {
+          context.data.albumId = context.params.route.albumId;
+        }
+      },
+    }
+  });
+
   service.hooks(hooks);
 };

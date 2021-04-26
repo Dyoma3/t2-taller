@@ -3,6 +3,7 @@ const createMethod = require('./methods/createMethod');
 const findMethod = require('./methods/findMethod');
 const getMethod = require('./methods/getMethod');
 const removeMethod = require('./methods/removeMethod');
+const updateMethod = require('./methods/updateMethod');
 
 exports.Albums = class Albums extends Service {
 
@@ -20,6 +21,10 @@ exports.Albums = class Albums extends Service {
 
   async remove(id) {
     return await removeMethod(id);
+  }
+
+  async update(id, data) {
+    return await updateMethod(data);
   }
   
 };
