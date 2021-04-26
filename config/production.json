@@ -1,4 +1,4 @@
 {
-  "host": "t-2-taller-app.feathersjs.com",
+  "host": "HOST",
   "port": "PORT"
 }
