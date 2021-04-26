@@ -1,5 +1,6 @@
 const getHook = require('./hooks/getHook');
 const createHook = require('./hooks/createHook');
+const removeHook = require('./hooks/removeHook');
 
 module.exports = {
   before: {
@@ -19,7 +20,7 @@ module.exports = {
     create: [createHook],
     update: [],
     patch: [],
-    remove: []
+    remove: [removeHook]
   },
 
   error: {
