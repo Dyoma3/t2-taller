@@ -6,9 +6,9 @@ module.exports = async data => {
     return 'Invalid Input';
   }
   const id = Buffer.from(`${name}:${artistId}`).toString('base64').substring(0, 22);
-  const artist = `${process.env.HOST}/artists/${artistId}`;
-  const tracks = `${process.env.HOST}/albums/${id}/tracks`;
-  const self = `${process.env.HOST}/albums/${id}`;
+  const artist = `https://${process.env.HOST}/artists/${artistId}`;
+  const tracks = `https://${process.env.HOST}/albums/${id}/tracks`;
+  const self = `https://${process.env.HOST}/albums/${id}`;
 
   const albumsModel = mongoose.models.albums;
   // verify it doesnt exist already
