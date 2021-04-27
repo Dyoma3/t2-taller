@@ -54,5 +54,7 @@ app.use(express.notFound());
 app.use(express.errorHandler({ logger }));
 
 app.hooks(appHooks);
+console.log(app.get('port'));
+console.log(app.get('host'));
 
 module.exports = app;

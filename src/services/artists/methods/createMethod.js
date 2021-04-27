@@ -7,9 +7,9 @@ module.exports = async (data) => {
   }
   // eslint-disable-next-line no-undef
   const id = Buffer.from(name).toString('base64').substring(0, 22);
-  const albums = `${process.env.HOST}/artists/${id}/albums`;
-  const tracks = `${process.env.HOST}/artists/${id}/tracks`;
-  const self = `${process.env.HOST}/artists/${id}`;
+  const albums = `https://${process.env.HOST}/artists/${id}/albums`;
+  const tracks = `https://${process.env.HOST}/artists/${id}/tracks`;
+  const self = `https://${process.env.HOST}/artists/${id}`;
 
   const artistsModel = mongoose.models.artists;
   // verify it doesnt exist already

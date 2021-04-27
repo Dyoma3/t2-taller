@@ -20,9 +20,9 @@ module.exports = async data => {
   const { artist_id: artistId } = await albumsModel.findOne({ id: albumId });
 
   const id = Buffer.from(`${name}:${albumId}`).toString('base64').substring(0, 22);
-  const artist = `${process.env.HOST}/artists/${artistId}`;
-  const self = `${process.env.HOST}/tracks/${id}`;
-  const album = `${process.env.HOST}/albums/${albumId}`;
+  const artist = `https://${process.env.HOST}/artists/${artistId}`;
+  const self = `https://${process.env.HOST}/tracks/${id}`;
+  const album = `https://${process.env.HOST}/albums/${albumId}`;
 
   const tracksModel = mongoose.models.tracks;
   // verify if track exists
